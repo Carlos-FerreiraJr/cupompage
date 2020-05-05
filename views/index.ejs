@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cupom teste</title>
+</head>
+<body>
+
+    <h2>Adicionar<h2>
+    <form action="/show" method="POST">
+        <input type="text" placeholder="Nome" name="name">
+        <input type="text" placeholder="Cupom" name="cupom">
+        <input type="text" placeholder="preço mensal" name="priceMonth">
+        <input type="text" placeholder="preço trimestral" name="priceQuarter">
+        <input type="text" placeholder="preço trimestral" name="pricesemiannual">
+        <input type="checkbox" name='split' value='yes'>Split
+        <input type="text" placeholder="id do recebedor" name='idReceive'>
+        <button type="submit">Submit</button>
+    </form> 
+
+    <br>
+    
+    <table border="1">
+      <thead>
+          <tr>
+              <td>Nome</td>
+              <td>Cupom</td>
+              <td>Preço Mensal</td>
+              <td>Preço Trimestral</td>
+              <td>Preço Semestral</td>
+              <td>Split</td>
+              <td>ID Recebedor</td>
+              
+          </tr>
+      </thead>
+      <tbody>
+      <% data.forEach(function(details) { %>
+          <tr>
+              <td><%= details.name %></td>
+              <td><%= details.cupom %></td>
+              <td><%= details.priceMonth %></td>
+              <td><%= details.priceQuarter %></td>
+              <td><%= details.pricesemiannual %></td>
+              <td><%= details.split %></td>
+              <td><%= details.idReceive %></td>
+              <td><a href="/edit/<%= details._id %>">Editar</a> - <a href="/deletecupom/<%= details._id %>">Deletar</a></td>
+          </tr>
+          <% }) %>
+      </tbody>
+
+</body>
+</html>
